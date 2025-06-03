@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022 Image Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <div class="hd">
+        <h1>Friends Gallery 2022</h1>
+    </div>
+
+    <div class="year-links">
+        <a href="index.html">Home</a>
+        <a href="gallery-2023.html">2023</a>
+        <a href="gallery-2024.html">2024</a>
+    </div>
+
+    <div class="upload-form">
+        <input type="file" id="fileInput" accept="image/*">
+        <label for="fileInput">Upload Image</label>
+    </div>
+
+    <div class="gallery" id="gallery">
+        <!-- Gallery items will be added here dynamically -->
+    </div>
+
+    <script>
+        const year = '2022'; // Change this according to the year
+
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const files = event.target.files;
+            if (files.length > 0) {
+                const file = files[0];
+                const formData = new FormData();
+                formData.append('file', file);
+
+                fetch(`http://localhost:3000/upload/${year}`, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    addImageToGallery(data.filePath);
+                })
+                .catch(error => {
+                    console.error('Error uploading file:', error);
+                });
+            }
+        });
+
+        function addImageToGallery(filePath) {
+            const gallery = document.getElementById('gallery');
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            const img = document.createElement('img');
+            img.src = `http://localhost:3000${filePath}`;
+            img.alt = 'Uploaded Image';
+            // Adjusting image dimensions for landscape orientation
+            img.style.maxWidth = '100%'; // Ensures image fits within container width
+            img.style.height = 'auto'; // Allows the image to maintain its aspect ratio
+            galleryItem.appendChild(img);
+            gallery.appendChild(galleryItem);
+        }
+
+        function loadImages() {
+            fetch(`http://localhost:3000/images/${year}`)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(filePath => {
+                        addImageToGallery(filePath);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading images:', error);
+                });
+        }
+
+        // Load images when the page loads
+        window.onload = loadImages;
+    </script>
+</body>
+</html>

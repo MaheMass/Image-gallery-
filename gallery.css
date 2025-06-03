@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.hd {
+    border: 2px;
+    border-radius: 20px;
+    border: 5px solid skyblue;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow:0 0 40px skyblue;
+}
+
+.year-links {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.year-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: skyblue;
+    font-weight: bold;
+}
+
+.upload-form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-form input[type="file"] {
+    display: none;
+}
+
+.upload-form label {
+    background-color: skyblue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 10px skyblue;
+}
+
+@media (max-width: 1200px) {
+    .gallery-item {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        flex: 1 1 calc(100% - 20px);
+    }
+}

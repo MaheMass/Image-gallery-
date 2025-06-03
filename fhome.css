@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('bg.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header-content {
+    background-color: skyblue;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.header-content .yr {
+    margin-top: 10px;
+}
+
+.header-content .yr p {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+}
+
+nav ul li a:hover {
+    box-shadow: 0 0 10px 10px rgb(198, 146, 78);
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.contain {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.home, .about {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.home:hover, .about:hover {
+    box-shadow: 0 0 15px 15px skyblue;
+}
+
+.login {
+    background-color: #fff;
+    padding: 20px;
+    margin: 50px auto;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login form input[type="text"],
+.login form input[type="password"],
+.login form select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login form input[type="submit"] {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login form input[type="submit"]:hover {
+    background-color: #555;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="wel"><span>Login to Gallery</span></h1>
+        </div>
+    </header>
+    <div class="contain">
+        <div class="login">
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <label for="year">Year:</label>
+                <select id="year" name="year" required>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                </select>
+                <br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const form = document.getElementById('loginForm');
+            const username = form.username.value;
+            const password = form.password.value;
+            const year = form.year.value;
+
+            const validUsername = "mahe";
+            const validPassword = "mass";
+
+            if (username === validUsername && password === validPassword) {
+                window.location.href = `gallery-${year}.html`;
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
